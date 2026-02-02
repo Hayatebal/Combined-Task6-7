@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Marian Balila-on</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .text {
+            text-align: center;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .header img {
+            border-radius: 50%;
+            width: 100px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="login-container">
+        <h2 class="title">Login</h2>
+
+        <form class="form" id="loginForm">
+            <label class="label">Email</label>
+            <input type="email" class="input" placeholder="Enter your Email" required>
+
+            <label class="label">Password</label>
+            <input type="password" class="input" placeholder="Enter your Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <p class="text">
+            Don't have an account? <a href="#register" class="link" onclick="showRegister();">Register</a>
+        </p>
+    </div>
+
+    <div class="container" id="register-container" style="display: none;">
+        <h2 class="title">Register</h2>
+
+        <form class="form" id="registerForm">
+            <label class="label">Full Name</label>
+            <input type="text" class="input" placeholder="Enter your Full Name" required>
+
+            <label class="label">Email</label>
+            <input type="email" class="input" placeholder="Enter your Email" required>
+
+            <label class="label">Password</label>
+            <input type="password" class="input" placeholder="Create your Password" required>
+
+            <input class="btn" type="submit" value="Register">
+        </form>
+
+        <p class="text">
+            Already have an account? <a href="#login" class="link" onclick="showLogin();">Login</a>
+        </p>
+    </div>
+
+    <div class="container" id="portfolio-container" style="display: none;">
+        <div class="header">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.8bLZd_GdSIi-X3lGyNN-PgHaHb?pid=Api&P=0&h=180" alt="Marian Balila-on">
+            <h1>Marian Balila-on</h1>
+            <h3>Frontend Developer</h3>
+            <p>Davao City, Philippines</p>
+            <div class="social-links">
+                <a href="mailto:m.balila-on.536240@umindanao.edu.ph">Email</a>
+                <a href="https://github.com/Hayatebal">GitHub</a>
+                <a href="https://web.facebook.com/balilaon.28">Facebook</a>
+            </div>
+        </div>
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm an Information Technology student and just a beginner.</p>
+        </div>
+        <div class="section">
+            <h2>Tech Stack</h2>
+            <ul>
+                <li>HTML/CSS</li>
+                <li>Node.js</li>
+                <li>MySQL</li>
+                <li>Javascript</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Painting</li>
+                <li>Playing Mobile Games</li>
+                <li>Listening to Music</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Recent Projects</h2>
+            <ul>
+                <li>Wholesale Management System - Softdrinks Management</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to portfolio after login
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // prevent default form submission
+            window.location.hash = "portfolio"; // Navigate to portfolio section
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("register-container").style.display = "none";
+            document.getElementById("portfolio-container").style.display = "block";
+        });
+
+        // Show the registration form
+        function showRegister() {
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("register-container").style.display = "block";
+            document.getElementById("portfolio-container").style.display = "none";
+        }
+
+        // Show the login form
+        function showLogin() {
+            document.getElementById("login-container").style.display = "block";
+            document.getElementById("register-container").style.display = "none";
+            document.getElementById("portfolio-container").style.display = "none";
+        }
+
+        // Optional: Redirect to portfolio after registration
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // prevent default form submission
+            window.location.hash = "portfolio"; // Navigate to portfolio section
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("register-container").style.display = "none";
+            document.getElementById("portfolio-container").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
